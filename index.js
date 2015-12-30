@@ -1,6 +1,7 @@
 /* global hexo */
 var assign = require('object-assign');
 
+// HTML minifier
 hexo.config.html_minifier = assign({
     enable:true,
     exclude: [],
@@ -12,11 +13,13 @@ hexo.config.html_minifier = assign({
     minifyJS: true
 }, hexo.config.html_minifier);
 
+// Css minifier
 hexo.config.css_minifier = assign({
     enable:true,
   exclude: ['*.min.css']
 }, hexo.config.css_minifier);
 
+// Js minifier
 hexo.config.js_minifier = assign({
   enable:true,
   mangle: true,

@@ -24,7 +24,9 @@ html_minifier:
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **exclude**: Exclude files
+
 ----------
+
 ``` yaml
 css_minifier:
   enable: true
@@ -33,7 +35,9 @@ css_minifier:
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **exclude**: Exclude files
+
 ----------
+
 ``` yaml
 js_minifier:
   enable: true
@@ -48,7 +52,9 @@ js_minifier:
 - **output**: Output options
 - **compress**: Compress options
 - **exclude**: Exclude files
+
 ----------
+
 ```yaml
 image_minifier:
   enable: true
