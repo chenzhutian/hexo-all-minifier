@@ -1,0 +1,41 @@
+{
+  "name": "hexo-html-minifier",
+  "version": "0.0.1",
+  "description": "Minify HTML files with HTMLMinifier.",
+  "main": "index",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "repository": "hexojs/hexo-html-minifier",
+  "keywords": [
+    "hexo",
+    "filter",
+    "html",
+    "minify"
+  ],
+  "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
+  "license": "MIT",
+  "dependencies": {
+    "html-minifier": "^0.6.9",
+    "minimatch": "^2.0.1",
+    "object-assign": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "coveralls": "^2.11.2",
+    "gulp": "^3.8.9",
+    "gulp-istanbul": "^0.5.0",
+    "gulp-jshint": "^1.8.6",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-mocha": "^2.0.0",
+    "jshint-stylish": "^1.0.0",
+    "mocha": "^2.0.1",
+    "rimraf": "^2.2.8"
+  }
+}
