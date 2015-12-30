@@ -1,5 +1,8 @@
-# Minifier & Optimization plugin for [Hexo](https://hexo.io)
-All in one. 
+# Hexo-all-minifier
+[![npm version](https://badge.fury.io/js/hexo-all-minifier.svg)](https://badge.fury.io/js/hexo-all-minifier)
+[![NPM Dependencies](https://david-dm.org/unhealthy/hexo-all-minifier.svg)](https://www.npmjs.com/package/hexo-all-minifier)
+
+All in one. Minifier & Optimization plugin for [Hexo](https://hexo.io).
 Since most of the optimize plugin for [HEXO](https://hexo.io) have been deprecated, and [HEXO](https://hexo.io) has upgraded to 3.XX, so I decide to implement this plugin.
 
 ## Installation
