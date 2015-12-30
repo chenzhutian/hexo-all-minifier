@@ -13,6 +13,7 @@ Integrate all the official minifier plugins of HEXO and a imagemin plugin:
 - [hexo-clean-css](https://github.com/hexojs/hexo-clean-css), which is based on [clean-css](https://github.com/jakubpawlowicz/clean-css)
 - [hexo-uglify](https://github.com/hexojs/hexo-uglify), which is based on [UglifyJS](http://lisperator.net/uglifyjs/)
 - [hexo-imagemin](https://github.com/vseventer/hexo-imagemin), which is based on [imagemin](https://github.com/imagemin/imagemin)
+
 Thanks for their works.
 
 ## Options
@@ -23,18 +24,18 @@ html_minifier:
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **exclude**: Exclude files
-
+----------
 ``` yaml
-clean_css:
+css_minifier:
   enable: true
   exclude: 
     - *.min.css
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **exclude**: Exclude files
-
+----------
 ``` yaml
-uglify:
+js_minifier:
   enable: true
   mangle: true
   output:
@@ -47,7 +48,7 @@ uglify:
 - **output**: Output options
 - **compress**: Compress options
 - **exclude**: Exclude files
-
+----------
 ```yaml
 image_minifier:
   enable: true
