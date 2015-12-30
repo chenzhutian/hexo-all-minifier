@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:unhealthy/hexo-console-optimize.git"
+    "url": "git@github.com:unhealthy/hexo-all-minifier.git"
   },
   "keywords": [
     "hexo",
