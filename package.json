@@ -1,10 +1,10 @@
 {
-  "name": "hexo-html-minifier",
-  "version": "0.0.1",
-  "description": "Minify HTML files with HTMLMinifier.",
+  "name": "hexo-all-minifier",
+  "version": "0.0.2",
+  "description": "Minify HTML, CSS, JS and Image files.",
   "main": "index",
   "scripts": {
-    "test": "gulp test"
+    "test": ""
   },
   "directories": {
     "lib": "./lib"
@@ -12,30 +12,28 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "repository": "hexojs/hexo-html-minifier",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:unhealthy/hexo-console-optimize.git"
+  },
   "keywords": [
     "hexo",
     "filter",
-    "html",
+    "optimize",
     "minify"
   ],
-  "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
+  "author": "Chen Zhutian <zhutian.chen@outlook.com> (http://chenzhutian.org)",
   "license": "MIT",
   "dependencies": {
-    "html-minifier": "^0.6.9",
+    "async": "~1.5.0",
+    "imagemin": "~4.0.0",
+    "deferred": "~0.7.1",
+    "clean-css": "~3.4.8",
+    "uglify-js": "~2.6.1",
+    "html-minifier": "~1.0.1",
     "minimatch": "^2.0.1",
     "object-assign": "^2.0.0"
   },
   "devDependencies": {
-    "chai": "^1.9.1",
-    "coveralls": "^2.11.2",
-    "gulp": "^3.8.9",
-    "gulp-istanbul": "^0.5.0",
-    "gulp-jshint": "^1.8.6",
-    "gulp-load-plugins": "^0.8.0",
-    "gulp-mocha": "^2.0.0",
-    "jshint-stylish": "^1.0.0",
-    "mocha": "^2.0.1",
-    "rimraf": "^2.2.8"
   }
 }
