@@ -2,6 +2,7 @@
 var assign = require('object-assign');
 
 hexo.config.html_minifier = assign({
+    enable:true,
     exclude: [],
     removeComments: true,
     removeCommentsFromCDATA: true,
@@ -12,6 +13,7 @@ hexo.config.html_minifier = assign({
 }, hexo.config.html_minifier);
 
 hexo.config.css_minifier = assign({
+    enable:true,
   exclude: ['*.min.css']
 }, hexo.config.css_minifier);
 
