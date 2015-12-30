@@ -4,7 +4,7 @@ Since most of the optimize plugin for [HEXO](https://hexo.io) have been deprecat
 
 ## Installation
 ``` bash
-$ npm install hexo-clean-css --save
+$ npm install hexo-all-minifier --save
 ```
 
 ## Components
