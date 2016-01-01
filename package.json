@@ -1,6 +1,6 @@
 {
   "name": "hexo-all-minifier",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Minify HTML, CSS, JS and Image files.",
   "main": "index",
   "scripts": {
@@ -25,18 +25,24 @@
   "author": "Chen Zhutian <zhutian.chen@outlook.com> (http://chenzhutian.org)",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.9.4",
-    "imagemin": "~4.0.0",
-    "imagemin-mozjpeg"  : "5.1.x",
-    "imagemin-pngquant" : "4.1.x",
-    "stream-to-array"   : "2.0.x",
-    "deferred": "~0.7.1",
+    "bluebird": "^3.1.1",
     "clean-css": "~3.4.8",
-    "uglify-js": "~2.6.1",
+    "deferred": "~0.7.1",
     "html-minifier": "~1.0.1",
-    "minimatch": "^2.0.1",
-    "object-assign": "^2.0.0"
+    "imagemin": "~4.0.0",
+    "imagemin-mozjpeg": "5.1.x",
+    "imagemin-pngquant": "4.2.x",
+    "minimatch": "^3.0.0",
+    "more-css": "^0.12.0",
+    "object-assign": "^4.0.1",
+    "stream-to-array": "2.2.x",
+    "uglify-js": "~2.6.1"
   },
   "devDependencies": {
+      "hexo":"^3.1.1",
+    "chai": "^3.4.1",
+    "minimist": "^1.2.0",
+    "mocha": "^2.3.4",
+    "path": "^0.12.7"
   }
 }
