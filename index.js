@@ -1,8 +1,6 @@
 /* global hexo */
 var assign = require('object-assign');
 
-//module.exports = function (hexo) {
-
 if (false === hexo.config.hasOwnProperty('all_minifier') || true === hexo.config.all_minifier) {
 
 
@@ -55,4 +53,3 @@ if (false === hexo.config.hasOwnProperty('all_minifier') || true === hexo.config
 
     hexo.extend.filter.register('after_generate', filter.optimizeImage);
 }
-//}
