@@ -8,12 +8,14 @@ if (false === hexo.config.hasOwnProperty('all_minifier') || true === hexo.config
     hexo.config.html_minifier = assign({
         enable: true,
         exclude: [],
+        ignoreCustomComments:[/^\s*more/],
         removeComments: true,
         removeCommentsFromCDATA: true,
         collapseWhitespace: true,
         collapseBooleanAttributes: true,
         removeEmptyAttributes: true,
-        minifyJS: true
+        minifyJS: true,
+        minifyCSS:true,
     }, hexo.config.html_minifier);
 
     // Css minifier
