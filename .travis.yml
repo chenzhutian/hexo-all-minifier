@@ -10,7 +10,7 @@ node_js:
   - "iojs"
   
 script:
-  - npm test
+  - node app.js
 
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

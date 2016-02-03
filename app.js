@@ -1,12 +1,9 @@
 var Hexo = require('hexo');
-var hexo = new Hexo('D:\\Visual Studio 2013\\Projects\\testSite',{'debug':false});
-
-
+var hexo = new Hexo('./test/testSite',{'debug':false});
 
 
 hexo.init().then(function(){
     require('./index.js')(hexo);
-    
     console.log('clean');
     return hexo.call('clean',{});
 })
