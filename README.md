@@ -35,7 +35,7 @@ html_minifier:
 css_minifier:
   enable: true
   exclude: 
-    - *.min.css
+    - '*.min.css'
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **exclude**: Exclude files
@@ -49,7 +49,7 @@ js_minifier:
   output:
   compress:
   exclude: 
-    - *.min.js
+    - '*.min.js'
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **mangle**: Mangle file names
