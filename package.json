@@ -1,6 +1,6 @@
 {
   "name": "hexo-all-minifier",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Minify HTML, CSS, JS and Image files.",
   "main": "index",
   "scripts": {
