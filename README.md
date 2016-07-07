@@ -9,6 +9,10 @@ Since most of the optimize plugin for [HEXO](https://hexo.io) have been deprecat
 ``` bash
 $ npm install hexo-all-minifier --save
 ```
+For Mac User, maybe you need to install somthing more
+```bash
+$ brew install libtool automake autoconf nasm
+```
 
 ## Components
 Integrate all the official minifier plugins of HEXO and a imagemin plugin:
