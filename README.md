@@ -27,9 +27,11 @@ Thanks for their works.
 ``` yaml
 html_minifier:
   enable: true
-  exclude: 
+  ignore_error: false
+  exclude:
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
+- **ignore_error** - Ignore the error occurred on parsing html
 - **exclude**: Exclude files
 
 ----------
