@@ -79,7 +79,7 @@ image_minifier:
 - **optimizationLevel** - Select an optimization level between 0 and 7. Defaults to `2`.
 - **pngquant** - Enable [imagemin-pngquant](https://github.com/imagemin/imagemin-pngquant) plugin. Defaults to `false`.
 - **progressive** - Lossless conversion to progressive. Defaults to `false`.
-
+- **exclude** - Exclude specific types of image files, the input value could be `gif`,`jpg`, `png`, or `svg`. Default to null.
 
 
 To be continued
