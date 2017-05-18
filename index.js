@@ -56,4 +56,3 @@ if (all_minifier.enable) {
         hexo.extend.filter.register('after_render:js', filter.optimizeJS);
         hexo.extend.filter.register('after_generate', filter.optimizeImage);
     }
-}
