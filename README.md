@@ -24,6 +24,17 @@ Integrate all the official minifier plugins of HEXO and a imagemin plugin:
 Thanks for their works.
 
 ## Options
+
+``` yaml
+all_minifier:
+  enable: true
+  enable_in_debug: false
+```
+- **enable** - Enable the plugin. Defaults to `true`.
+- **enable_in_debug** - Enable the plugin in debug mode. Defaults to `false`.
+
+----------
+
 ``` yaml
 html_minifier:
   enable: true
@@ -39,7 +50,7 @@ html_minifier:
 ``` yaml
 css_minifier:
   enable: true
-  exclude: 
+  exclude:
     - '*.min.css'
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
@@ -53,7 +64,7 @@ js_minifier:
   mangle: true
   output:
   compress:
-  exclude: 
+  exclude:
     - '*.min.js'
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
