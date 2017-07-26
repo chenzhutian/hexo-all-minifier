@@ -3,26 +3,8 @@ const expect = require('chai').expect;
 
 const jsMinifier = require('../lib/optimizeJS');
 
-// Stub hexo.route.
-const hexoRoute = {
-  buffer: null,
-  get: function (name) {
-    return fs.createReadStream(name);
-  },
-  list: function () {
-    return [fixture];
-  },
-  set: function (name, buffer) {
-    this.buffer = buffer; // Save.
-  }
-};
-
-
 describe('OptimizeJS', () => {
-  // Reset the buffer.
-  beforeEach('hexoRoute', function () {
-    hexoRoute.buffer = null;
-  });
+
   it('should do nothing if options.enable is false', () => {
     const hexo = {
       config: {
@@ -32,7 +14,6 @@ describe('OptimizeJS', () => {
       }
     };
     expect(jsMinifier.call(hexo)).to.be.undefined;
-    expect(hexoRoute.buffer).to.be.null;
   });
 
   describe('exclude options', () => {
@@ -53,4 +34,19 @@ describe('OptimizeJS', () => {
     });
   });
 
+  it('should minify js', () => {
+    const hexo = {
+      config: {
+        js_minifier: {
+          enable: true,
+          exclude: 'src/**/*'
+        }
+      }
+    };
+    const data = { str:'var a = 10;               var b = function(){};', path: 'test.txt' };
+    expect(jsMinifier.call(hexo, data.str, data)).to.have.length.lessThan(data.str.length);
+
+    const excludeData = { str:'var a = 10;               var b = function(){};', path: 'src/usr/absolute' };
+    expect(jsMinifier.call(hexo, excludeData.str, excludeData)).to.deep.equal(excludeData.str);
+  });
 });
