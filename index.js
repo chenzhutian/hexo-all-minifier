@@ -1,7 +1,7 @@
 /* global hexo */
 
 var isEnabled = process.env.NODE_ENV !== 'development' &&
-  (false === hexo.config.hasOwnProperty('all_minifier') || true === hexo.config.all_minifier);
+  (hexo.config.hasOwnProperty('all_minifier') === false || hexo.config.all_minifier === true);
 
 if (isEnabled) {
   // HTML minifier
@@ -45,12 +45,11 @@ if (isEnabled) {
     progressive: false
   }, hexo.config.image_minifier);
 
-  var filter = require('./lib/filter');
-  hexo.extend.filter.register('after_render:html', filter.optimizeHTML);
+  hexo.extend.filter.register('after_render:html', require('./lib/optimizeHTML'));
 
-  hexo.extend.filter.register('after_render:css', filter.optimizeCSS);
+  hexo.extend.filter.register('after_render:css', require('./lib/optimizeCSS'));
 
-  hexo.extend.filter.register('after_render:js', filter.optimizeJS);
+  hexo.extend.filter.register('after_render:js', require('./lib/optimizeJS'));
 
-  hexo.extend.filter.register('after_generate', filter.optimizeImage);
+  hexo.extend.filter.register('after_generate', require('./lib/optimizeImage'));
 }

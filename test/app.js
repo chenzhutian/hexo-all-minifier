@@ -1,5 +1,5 @@
 var Hexo = require('hexo');
-var hexo = new Hexo('../hexo-all-minifier-test-blog', { 'debug': false });
+var hexo = new Hexo('./hexo-all-minifier-test-blog', { 'debug': false });
 
 hexo.init()
     .then(function () {
