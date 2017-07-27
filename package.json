@@ -38,7 +38,6 @@
     "imagemin-pngquant": "^5.0.0",
     "imagemin-svgo": "^5.2.0",
     "minimatch": "^3.0.3",
-    "nyc": "^11.0.3",
     "stream-to-array": "^2.3.0",
     "uglify-js": "^3.0.26"
   },
@@ -48,11 +47,11 @@
     "chai": "^4.1.0",
     "chai-as-promised": "^7.1.1",
     "eslint": "^4.3.0",
+    "eslint-config-hexo": "^1.0.6",
     "hexo": "^3.2.2",
-    "istanbul": "^0.4.5",
+    "nyc": "^11.0.3",
     "minimist": "^1.2.0",
     "mocha": "^3.2.0",
-    "path": "^0.12.7",
     "standard-version": "^4.2.0"
   }
 }
