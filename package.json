@@ -39,7 +39,7 @@
     "imagemin-svgo": "^5.2.0",
     "minimatch": "^3.0.3",
     "stream-to-array": "^2.3.0",
-    "uglify-js": "^3.0.26"
+    "uglify-es": "^3.0.26"
   },
   "devDependencies": {
     "@types/chai": "^4.0.1",
@@ -49,9 +49,9 @@
     "eslint": "^4.3.0",
     "eslint-config-hexo": "^1.0.6",
     "hexo": "^3.2.2",
-    "nyc": "^11.0.3",
     "minimist": "^1.2.0",
     "mocha": "^3.2.0",
+    "nyc": "^11.0.3",
     "standard-version": "^4.2.0"
   }
 }

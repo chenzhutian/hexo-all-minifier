@@ -43,7 +43,7 @@ describe('OptimizeJS', () => {
         }
       }
     };
-    const data = { str:'var a = 10;               var b = function(){};', path: 'test.txt' };
+    const data = { str:'var a = 10;   var b =  ()=>{console.log(a);}            ', path: 'test.txt' };
     expect(jsMinifier.call(hexo, data.str, data)).to.have.length.lessThan(data.str.length);
 
     const excludeData = { str:'var a = 10;               var b = function(){};', path: 'src/usr/absolute' };
