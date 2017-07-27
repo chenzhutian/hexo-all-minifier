@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/unhealthy/hexo-all-minifier/compare/v0.2.0...v0.2.1) (2017-07-27)
+
+
+### Bug Fixes
+
+* add badge to readme ([e60d584](https://github.com/unhealthy/hexo-all-minifier/commit/e60d584))
+* some typo ([e202fcc](https://github.com/unhealthy/hexo-all-minifier/commit/e202fcc))
+
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2017-07-27)
 
