@@ -6,3 +6,4 @@ tmp/
 coverage/
 typings/
 .vscode/
+.nyc_output/

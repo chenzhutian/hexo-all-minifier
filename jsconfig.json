@@ -10,5 +10,8 @@
 		"jspm_packages",
 		"tmp",
 		"temp"
+	],
+	"include": [
+		"lib/**/*"
 	]
 }
