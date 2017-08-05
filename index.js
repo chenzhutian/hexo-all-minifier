@@ -31,9 +31,7 @@ if (isEnabled) {
     output: {},
     compress: {},
     exclude: ['*.min.js']
-  }, hexo.config.js_minifier, {
-    fromString: true
-  });
+  }, hexo.config.js_minifier);
 
   // Image minifier
   hexo.config.image_minifier = Object.assign({
