@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.5"></a>
+## [0.2.5](https://github.com/unhealthy/hexo-all-minifier/compare/v0.2.4...v0.2.5) (2017-08-24)
+
+
+### Bug Fixes
+
+* fix a NaN infor ([6110166](https://github.com/unhealthy/hexo-all-minifier/commit/6110166))
+* fix the minimatch of *.min.js ([b21cf5e](https://github.com/unhealthy/hexo-all-minifier/commit/b21cf5e))
+* fix the readme ([6ba8f7e](https://github.com/unhealthy/hexo-all-minifier/commit/6ba8f7e))
+
+
+
 <a name="0.2.4"></a>
 ## [0.2.4](https://github.com/unhealthy/hexo-all-minifier/compare/v0.2.3...v0.2.4) (2017-08-13)
 
