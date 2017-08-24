@@ -60,8 +60,8 @@ js_minifier:
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **mangle**: Mangle file names
-- **output**: Output options
-- **compress**: Compress options
+- **output**: Output options. If it is empty, please remove it from the .yml file! Otherise it will be set to `null`, which is different from `undefined`.
+- **compress**: Compress options. If it is empty, please remove it from the .yml file! Otherise it will be set to `null`, which is different from `undefined`.
 - **exclude**: Exclude files
 
 ----------
