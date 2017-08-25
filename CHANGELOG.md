@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.6"></a>
+## [0.2.6](https://github.com/unhealthy/hexo-all-minifier/compare/v0.2.5...v0.2.6) (2017-08-25)
+
+
+### Bug Fixes
+
+* the minimatch params ([2ca1a39](https://github.com/unhealthy/hexo-all-minifier/commit/2ca1a39))
+
+
+
 <a name="0.2.5"></a>
 ## [0.2.5](https://github.com/unhealthy/hexo-all-minifier/compare/v0.2.4...v0.2.5) (2017-08-24)
 
