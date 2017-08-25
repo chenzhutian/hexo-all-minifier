@@ -15,15 +15,12 @@ For Mac User, maybe you need to install somthing more
 ```bash
 $ brew install libtool automake autoconf nasm
 ```
-
-## Components
-Integrate all the official minifier plugins of HEXO and a imagemin plugin:
-- [hexo-html-minifier](https://github.com/hexojs/hexo-html-minifier), which is based on [HTMLMinifier](https://github.com/kangax/html-minifier)
-- [hexo-clean-css](https://github.com/hexojs/hexo-clean-css), which is based on [clean-css](https://github.com/jakubpawlowicz/clean-css)
-- [hexo-uglify](https://github.com/hexojs/hexo-uglify), which is based on [UglifyJS](http://lisperator.net/uglifyjs/)
-- [hexo-imagemin](https://github.com/vseventer/hexo-imagemin), which is based on [imagemin](https://github.com/imagemin/imagemin)
-
-Thanks for their works.
+## Usage
+Just put this line in the config file of your hexo-site to enable this plugin.
+``` yaml
+all_minifier: true
+```
+If you need futher control of this plugin, please refer the options below.
 
 ## Options
 ``` yaml
@@ -84,4 +81,11 @@ image_minifier:
 - **exclude** - Exclude specific types of image files, the input value could be `gif`,`jpg`, `png`, or `svg`. Default to null.
 
 
-To be continued
+## Components
+Integrate all the official minifier plugins of HEXO and a imagemin plugin:
+- [hexo-html-minifier](https://github.com/hexojs/hexo-html-minifier), which is based on [HTMLMinifier](https://github.com/kangax/html-minifier)
+- [hexo-clean-css](https://github.com/hexojs/hexo-clean-css), which is based on [clean-css](https://github.com/jakubpawlowicz/clean-css)
+- [hexo-uglify](https://github.com/hexojs/hexo-uglify), which is based on [UglifyJS](http://lisperator.net/uglifyjs/)
+- [hexo-imagemin](https://github.com/vseventer/hexo-imagemin), which is based on [imagemin](https://github.com/imagemin/imagemin)
+
+Thanks for their works.
