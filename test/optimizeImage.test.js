@@ -7,8 +7,8 @@ const expect = require('chai').expect;
 const optimizeImage = require('../lib/optimizeImage');
 
 // Configure.
-const fixture = path.join(__dirname, 'fixture.png'),
-  size = fs.statSync(fixture).size;
+const fixture = path.join(__dirname, 'fixture.png');
+const size = fs.statSync(fixture).size;
 
 // Stub hexo.route.
 const hexoRoute = {
@@ -32,22 +32,28 @@ describe('hexo-image-minifier', function () {
   });
 
   // Tests.
-  // it('should minify an image.', function () {
-  //   // Configure.
-  //   const hexo = {
-  //     config: {
-  //       image_minifier: {}
-  //     },
-  //     route: hexoRoute
-  //   };
-
-  //   // Filter and test.
-  //   const promise = optimizeImage.call(hexo);
-  //   return promise.then(function () {
-  //     console.assert(null !== hexoRoute.buffer);
-  //     console.assert(size > hexoRoute.buffer.length);
-  //   });
-  // });
+  it('should minify an image.', function () {
+    // Configure.
+    const hexo = {
+      config: {
+        image_minifier: {
+          enable: true,
+          interlaced: false,
+          multipass: false,
+          optimizationLevel: 3,
+          pngquant: false,
+          progressive: false
+        }
+      },
+      route: hexoRoute
+    };
+    // Filter and test.
+    const promise = optimizeImage.call(hexo);
+    return promise.then(function () {
+      expect(hexoRoute.buffer !== null);
+      expect(size > hexoRoute.buffer.length)
+    });
+  });
 
   it('should do nothing if disabled.', function () {
     // Configure.
