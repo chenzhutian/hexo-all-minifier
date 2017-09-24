@@ -46,11 +46,13 @@
     "@types/mocha": "^2.2.41",
     "chai": "^4.1.0",
     "chai-as-promised": "^7.1.1",
+    "chai-spies": "^0.7.1",
     "eslint": "^4.3.0",
     "eslint-config-hexo": "^1.0.6",
     "hexo": "^3.2.2",
     "minimist": "^1.2.0",
     "mocha": "^3.2.0",
+    "mock-require": "^2.0.2",
     "nyc": "^11.0.3",
     "standard-version": "^4.2.0"
   }
