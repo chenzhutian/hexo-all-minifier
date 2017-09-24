@@ -1,8 +1,6 @@
 'use strict';
 const chai = require('chai');
-var chaiAsPromised = require("chai-as-promised");
 
-chai.use(chaiAsPromised);
 const expect = chai.expect;
 
 const cssMinifier = require('../lib/optimizeCSS');
@@ -48,7 +46,7 @@ describe('OptimizeCSS', () => {
       }
     };
     const data = { str:'h { background: red;     }', path: 'test.txt' };
-    expect(cssMinifier.call(hexo, data.str, data)).to.eventually.have.length.lessThan(data.str.length);
+    expect(cssMinifier.call(hexo, data.str, data)).to.have.length.lessThan(data.str.length);
 
     const excludeData = { str:'h { background: red;     }', path: 'src/usr/absolute' };
     expect(cssMinifier.call(hexo, excludeData.str, excludeData)).to.deep.equal(excludeData.str);
