@@ -1,4 +1,6 @@
 # Hexo-all-minifier
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/chenzhutian/hexo-all-minifier.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/chenzhutian/hexo-all-minifier.svg?branch=master)](https://travis-ci.org/chenzhutian/hexo-all-minifier)
 [![codecov](https://codecov.io/gh/chenzhutian/hexo-all-minifier/branch/master/graph/badge.svg)](https://codecov.io/gh/chenzhutian/hexo-all-minifier)
 [![npm version](https://badge.fury.io/js/hexo-all-minifier.svg)](https://badge.fury.io/js/hexo-all-minifier)
