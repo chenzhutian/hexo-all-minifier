@@ -2,25 +2,37 @@
 const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
+const minimatch = require('minimatch');
 
 // Local modules.
 const optimizeImage = require('../lib/optimizeImage');
 
 // Configure.
-const fixture = path.join(__dirname, 'fixture.png');
-const size = fs.statSync(fixture).size;
+const fileSize = {};
+const fixtures = [];
+fs.readdir(path.resolve(__dirname, './fixture'), (err, files) => {
+  if (err) {
+    console.error(err);
+    return [];
+  }
+  files.forEach(file => {
+    const filePath = path.resolve(__dirname, './fixture', file)
+    fixtures.push(filePath);
+    fileSize[filePath] = fs.statSync(filePath).size;
+  })
+});
 
 // Stub hexo.route.
 const hexoRoute = {
-  buffer: null,
+  buffer: {},
   get: function (name) {
     return fs.createReadStream(name);
   },
   list: function () {
-    return [fixture];
+    return fixtures;
   },
   set: function (name, buffer) {
-    this.buffer = buffer; // Save.
+    this.buffer[name] = buffer; // Save.
   }
 };
 
@@ -28,11 +40,11 @@ const hexoRoute = {
 describe('hexo-image-minifier', function () {
   // Reset the buffer.
   beforeEach('hexoRoute', function () {
-    hexoRoute.buffer = null;
+    hexoRoute.buffer = {};
   });
 
   // Tests.
-  it('should minify an image.', function () {
+  it('should minify an image.', () => {
     // Configure.
     const hexo = {
       config: {
@@ -49,13 +61,15 @@ describe('hexo-image-minifier', function () {
     };
     // Filter and test.
     const promise = optimizeImage.call(hexo);
-    return promise.then(function () {
-      expect(hexoRoute.buffer !== null);
-      expect(size > hexoRoute.buffer.length)
+    return promise.then(() => {
+      for (const file of fixtures) {
+        expect(hexoRoute.buffer[file]).to.be.ok;
+        expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
+      }
     });
   });
 
-  it('should do nothing if disabled.', function () {
+  it('should do nothing if disabled.', () => {
     // Configure.
     const hexo = {
       config: {
@@ -65,7 +79,34 @@ describe('hexo-image-minifier', function () {
     };
 
     // Filter and test.
-    optimizeImage.call(hexo);
-    expect(hexoRoute.buffer).to.be.null;
+    expect(optimizeImage.call(hexo)).to.be.undefined;
+    expect(hexoRoute.buffer).to.be.empty;
+  });
+
+  it('should exclude files when the file extensions are listed in `exclude` options', () => {
+    const exclude = ['*.svg'];
+    // Configure.
+    const hexo = {
+      config: {
+        image_minifier: {
+          exclude,
+          optimizationLevel: 3,
+        }
+      },
+      route: hexoRoute
+    };
+
+    // Filter and test.
+    const promise = optimizeImage.call(hexo);
+    return promise.then(() => {
+      for (const file of fixtures) {
+        if (exclude.every(pattern => !minimatch(file, pattern, { nocase: true, matchBase: true }))) {
+          expect(hexoRoute.buffer[file]).to.be.ok;
+          expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
+        } else {
+          expect(hexoRoute.buffer[file]).to.be.undefined;
+        }
+      }
+    });
   });
 });
