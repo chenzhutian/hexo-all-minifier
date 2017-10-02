@@ -59,8 +59,8 @@ js_minifier:
 ```
 - **enable** - Enable the plugin. Defaults to `true`.
 - **mangle**: Mangle file names
-- **output**: Output options. If it is empty, please remove it from the .yml file! Otherise it will be set to `null`, which is different from `undefined`.
-- **compress**: Compress options. If it is empty, please remove it from the .yml file! Otherise it will be set to `null`, which is different from `undefined`.
+- **output**: Output options. If it is empty, please remove it from the .yml file! Otherwise it will be set to `null`, which is different from `undefined`.
+- **compress**: Compress options. If it is empty, please remove it from the .yml file! Otherwise it will be set to `null`, which is different from `undefined`.
 - **exclude**: Exclude files
 
 ----------
@@ -90,4 +90,4 @@ Integrate all the official minifier plugins of HEXO and a imagemin plugin:
 - [hexo-uglify](https://github.com/hexojs/hexo-uglify), which is based on [UglifyJS](http://lisperator.net/uglifyjs/)
 - [hexo-imagemin](https://github.com/vseventer/hexo-imagemin), which is based on [imagemin](https://github.com/imagemin/imagemin)
 
-Thanks for their works.
+Thanks for their work.
