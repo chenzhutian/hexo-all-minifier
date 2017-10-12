@@ -10,17 +10,15 @@ const optimizeImage = require('../lib/optimizeImage');
 // Configure.
 const fileSize = {};
 const fixtures = [];
-fs.readdir(path.resolve(__dirname, './fixture'), (err, files) => {
-  if (err) {
-    console.error(err);
-    return [];
-  }
-  files.forEach(file => {
-    const filePath = path.resolve(__dirname, './fixture', file)
-    fixtures.push(filePath);
-    fileSize[filePath] = fs.statSync(filePath).size;
-  })
-});
+const targetFile = ['.jpg', '.gif', '.png', '.svg'];
+
+const files = fs.readdirSync(path.resolve(__dirname, './fixture'));
+for (const file of files) {
+  const filePath = path.resolve(__dirname, './fixture', file)
+  fixtures.push(filePath);
+  fileSize[filePath] = fs.statSync(filePath).size;
+}
+
 
 // Stub hexo.route.
 const hexoRoute = {
@@ -37,9 +35,9 @@ const hexoRoute = {
 };
 
 // Test suite.
-describe('hexo-image-minifier', function () {
+describe('hexo-image-minifier', () => {
   // Reset the buffer.
-  beforeEach('hexoRoute', function () {
+  beforeEach('hexoRoute', () => {
     hexoRoute.buffer = {};
   });
 
@@ -63,8 +61,10 @@ describe('hexo-image-minifier', function () {
     const promise = optimizeImage.call(hexo);
     return promise.then(() => {
       for (const file of fixtures) {
-        expect(hexoRoute.buffer[file]).to.be.ok;
-        expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
+        if( targetFile.indexOf(path.extname(file)) !== -1) {
+          expect(hexoRoute.buffer[file]).to.be.ok;
+          expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
+        }
       }
     });
   });
@@ -85,6 +85,7 @@ describe('hexo-image-minifier', function () {
 
   it('should exclude files when the file extensions are listed in `exclude` options', () => {
     const exclude = ['*.svg'];
+
     // Configure.
     const hexo = {
       config: {
@@ -100,7 +101,8 @@ describe('hexo-image-minifier', function () {
     const promise = optimizeImage.call(hexo);
     return promise.then(() => {
       for (const file of fixtures) {
-        if (exclude.every(pattern => !minimatch(file, pattern, { nocase: true, matchBase: true }))) {
+        if (targetFile.indexOf(path.extname(file)) !== -1
+          && exclude.every(pattern => !minimatch(file, pattern, { nocase: true, matchBase: true }))) {
           expect(hexoRoute.buffer[file]).to.be.ok;
           expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
         } else {

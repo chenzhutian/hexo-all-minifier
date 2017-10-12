@@ -43,6 +43,12 @@ if (isEnabled) {
     progressive: false
   }, hexo.config.image_minifier);
 
+  // Js concator
+  hexo.config.js_concator = Object.assign({
+    enable: true,
+    bundlePath: '/js/bundle.js',
+  }, hexo.config.js_concator);
+
   hexo.extend.filter.register('after_render:html', require('./lib/optimizeHTML'));
 
   hexo.extend.filter.register('after_render:css', require('./lib/optimizeCSS'));
