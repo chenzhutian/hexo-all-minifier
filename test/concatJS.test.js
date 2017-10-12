@@ -23,7 +23,7 @@ const hexoRoute = {
   }, {}),
   get(name) {
     if(this.buffer[this.format(name)]) {
-      return fs.createReadStream(this.format(path.join(__dirname, './fixture', name)));
+      return fs.createReadStream(path.join(__dirname, './fixture', this.format(name)));
     }
     return undefined;
   },
