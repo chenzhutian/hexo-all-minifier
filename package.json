@@ -39,7 +39,6 @@
     "imagemin-pngquant": "^5.0.0",
     "imagemin-svgo": "^5.2.0",
     "minimatch": "^3.0.3",
-    "stream-to-array": "^2.3.0",
     "uglify-es": "^3.0.26"
   },
   "devDependencies": {
@@ -51,7 +50,6 @@
     "eslint": "^4.3.0",
     "eslint-config-hexo": "^2.0.0",
     "hexo": "^3.2.2",
-    "minimist": "^1.2.0",
     "mocha": "^4.0.0",
     "mock-require": "^2.0.2",
     "nyc": "^11.0.3",
