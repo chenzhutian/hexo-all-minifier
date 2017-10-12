@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0-1"></a>
+# [0.4.0-1](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.4.0-0...v0.4.0-1) (2017-10-12)
+
+
+### Bug Fixes
+
+* only concat the common js ([e2a6141](https://github.com/chenzhutian/hexo-all-minifier/commit/e2a6141))
+* the default path ([9f3a5d0](https://github.com/chenzhutian/hexo-all-minifier/commit/9f3a5d0))
+
+
+
 <a name="0.4.0-0"></a>
 # [0.4.0-0](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.3.2...v0.4.0-0) (2017-10-12)
 
