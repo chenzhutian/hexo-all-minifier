@@ -50,4 +50,6 @@ if (isEnabled) {
   hexo.extend.filter.register('after_render:js', require('./lib/optimizeJS'));
 
   hexo.extend.filter.register('after_generate', require('./lib/optimizeImage'));
+
+  hexo.extend.filter.register('after_generate', require('./lib/concatJS'));
 }
