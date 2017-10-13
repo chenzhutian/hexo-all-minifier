@@ -37,7 +37,6 @@ js_concator:
 - **enable** - Enable the Js concator. Defaults to `false`.
 - **bundle_path** - The output path of the bundle script.
 - **include** - Include files. With default setting, the concator will extract the local scripts which exist in all html pages and then concat them as a bundle script. If you want to concat scripts which exist in some html pages, you can manully add them in the `include` option. Glob is support.
-- **exclude** - Exclude files. The same as above. If you do not want to concat scripts which exist in all html pages, you can manully add them in the `exclude` option. Glob is support.
 
 ``` yaml
 html_minifier:
