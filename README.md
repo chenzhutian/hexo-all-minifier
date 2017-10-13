@@ -6,6 +6,8 @@
 [![npm version](https://badge.fury.io/js/hexo-all-minifier.svg)](https://badge.fury.io/js/hexo-all-minifier)
 [![NPM Dependencies](https://david-dm.org/unhealthy/hexo-all-minifier.svg)](https://www.npmjs.com/package/hexo-all-minifier)
 
+(**Try the latest feature JS_Concator in v0.4.0**)
+
 All in one. Minifier & Optimization plugin for [Hexo](https://hexo.io).
 Since most of the optimize plugin for [HEXO](https://hexo.io) have been deprecated, and [HEXO](https://hexo.io) has upgraded to 3.XX, so I decide to implement this plugin.
 
@@ -26,14 +28,26 @@ If you need futher control of this plugin, please refer the options below.
 
 ## Options
 ``` yaml
+js_concator:
+  enable: true
+  bundle_path: 'js/bundle.js'
+  exclude:
+  include:
+```
+- **enable** - Enable the Js concator. Defaults to `false`.
+- **bundle_path** - The output path of the bundle script.
+- **include** - Include files. With default setting, the concator will extract the local scripts which exist in all html pages and then concat them as a bundle script. If you want to concat scripts which exist in some html pages, you can manully add them in the `include` option. Glob is support.
+- **exclude** - Exclude files. The same as above. If you do not want to concat scripts which exist in all html pages, you can manully add them in the `exclude` option. Glob is support.
+
+``` yaml
 html_minifier:
   enable: true
   ignore_error: false
   exclude:
 ```
-- **enable** - Enable the plugin. Defaults to `true`.
-- **ignore_error** - Ignore the error occurred on parsing html
-- **exclude**: Exclude files
+- **enable** - Enable the HTML minifier. Defaults to `true`.
+- **ignore_error** - Ignore the error occurred on parsing html.
+- **exclude** - Exclude files. Glob is support.
 
 ----------
 
@@ -43,8 +57,8 @@ css_minifier:
   exclude: 
     - '*.min.css'
 ```
-- **enable** - Enable the plugin. Defaults to `true`.
-- **exclude**: Exclude files
+- **enable** - Enable the CSS minifier. Defaults to `true`.
+- **exclude** - Exclude files. Glob is support.
 
 ----------
 
@@ -57,11 +71,11 @@ js_minifier:
   exclude: 
     - '*.min.js'
 ```
-- **enable** - Enable the plugin. Defaults to `true`.
+- **enable** - Enable the JS minifier. Defaults to `true`.
 - **mangle**: Mangle file names
 - **output**: Output options. If it is empty, please remove it from the .yml file! Otherwise it will be set to `null`, which is different from `undefined`.
 - **compress**: Compress options. If it is empty, please remove it from the .yml file! Otherwise it will be set to `null`, which is different from `undefined`.
-- **exclude**: Exclude files
+- **exclude**: Exclude files. Glob is support.
 
 ----------
 
@@ -74,13 +88,13 @@ image_minifier:
   pngquant: false
   progressive: false
 ```
-- **enable** - Enable the plugin. Defaults to `true`.
+- **enable** - Enable the image minifier. Defaults to `true`.
 - **interlaced** - Interlace gif for progressive rendering. Defaults to `false`.
 - **multipass** - Optimize svg multiple times until it’s fully optimized. Defaults to `false`.
 - **optimizationLevel** - Select an optimization level between 0 and 7. Defaults to `2`.
 - **pngquant** - Enable [imagemin-pngquant](https://github.com/imagemin/imagemin-pngquant) plugin. Defaults to `false`.
 - **progressive** - Lossless conversion to progressive. Defaults to `false`.
-- **exclude** - Exclude specific types of image files, the input value could be `gif`,`jpg`, `png`, or `svg`. Default to null.
+- **exclude** - Exclude specific types of image files, the input value could be `gif`,`jpg`, `png`, or `svg`. Default to null. Glob is not support. 
 
 
 ## Components
