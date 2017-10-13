@@ -6,10 +6,9 @@
 [![npm version](https://badge.fury.io/js/hexo-all-minifier.svg)](https://badge.fury.io/js/hexo-all-minifier)
 [![NPM Dependencies](https://david-dm.org/unhealthy/hexo-all-minifier.svg)](https://www.npmjs.com/package/hexo-all-minifier)
 
-(**Try the latest feature JS_Concator in v0.4.0**)
+(:star2::new:**Try the latest feature JS_Concator in v0.4.0**)
 
 All in one. Minifier & Optimization plugin for [Hexo](https://hexo.io).
-Since most of the optimize plugin for [HEXO](https://hexo.io) have been deprecated, and [HEXO](https://hexo.io) has upgraded to 3.XX, so I decide to implement this plugin.
 
 ## Installation
 ``` bash
@@ -27,6 +26,7 @@ all_minifier: true
 If you need futher control of this plugin, please refer the options below.
 
 ## Options
+(:star2::new:**!NEW**)
 ``` yaml
 js_concator:
   enable: true
@@ -37,6 +37,8 @@ js_concator:
 - **enable** - Enable the Js concator. Defaults to `false`.
 - **bundle_path** - The output path of the bundle script.
 - **include** - Include files. With default setting, the concator will extract the local scripts which exist in all html pages and then concat them as a bundle script. If you want to concat scripts which exist in some html pages, you can manully add them in the `include` option. Glob is support.
+
+----------
 
 ``` yaml
 html_minifier:
