@@ -103,7 +103,7 @@ describe('ConcatJS', () => {
       });
     });
 
-    it('should not concat scripts which exist in some htmls (which have local scripts)', () => {
+    it('should concat scripts which exist in some htmls', () => {
 
       const promise = concatJS.call(hexo);
       return promise.then(() => {
@@ -119,16 +119,16 @@ describe('ConcatJS', () => {
             });
             // assertion
             if (file === 'concatJS1.html') {
-              expect(srcs.some(src => src.startsWith('/script2.js'))).to.be.true;
+              expect(srcs.some(src => src.startsWith('/script2.js'))).to.be.false;
             }
           } else if (file.includes('script2.js')) {
-            expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.ok;
+            expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
           }
         }
       });
     });
 
-    it('should concat scripts which exist in all htmls (which have local scripts)', () => {
+    it('should concat scripts which exist in all htmls', () => {
 
       const promise = concatJS.call(hexo);
       return promise.then(() => {
@@ -158,115 +158,115 @@ describe('ConcatJS', () => {
     });
   });
 
-  describe('when `include` option exist', () => {
-    // Configure.
-    let include = ['script2'];
-    const hexo = {
-      config: {
-        js_concator: {
-          enable: true,
-          bundle_path: '//js/bundle.js',
-          include,
-        }
-      },
-      route: hexoRoute,
-    };
+  // describe('when `include` option exist', () => {
+  //   // Configure.
+  //   let include = ['script2'];
+  //   const hexo = {
+  //     config: {
+  //       js_concator: {
+  //         enable: true,
+  //         bundle_path: '//js/bundle.js',
+  //         include,
+  //       }
+  //     },
+  //     route: hexoRoute,
+  //   };
 
-    beforeEach(() => {
-      include = ['script2'];
-    });
+  //   beforeEach(() => {
+  //     include = ['script2'];
+  //   });
 
-    it('should warp the `include` to an array if it is not an array', () => {
-      include = 'script'
-      hexo.config.js_concator.include = include;
-      const promise = concatJS.call(hexo);
-      return promise.then(() => {
-        for (const file of fixtures) {
-          if (file.includes('.html')) {
-            // extract src
-            const $ = cheerio.load(hexoRoute.buffer[file]);
-            const srcs = [];
-            $('script[src]').each((idx, ele) => {
-              const $script = $(ele);
-              const src = $script.attr('src');
-              srcs.push(src);
-            });
+  //   it('should warp the `include` to an array if it is not an array', () => {
+  //     include = 'script'
+  //     hexo.config.js_concator.include = include;
+  //     const promise = concatJS.call(hexo);
+  //     return promise.then(() => {
+  //       for (const file of fixtures) {
+  //         if (file.includes('.html')) {
+  //           // extract src
+  //           const $ = cheerio.load(hexoRoute.buffer[file]);
+  //           const srcs = [];
+  //           $('script[src]').each((idx, ele) => {
+  //             const $script = $(ele);
+  //             const src = $script.attr('src');
+  //             srcs.push(src);
+  //           });
 
-            // assertion
-            if (file === 'concatJS1.html' || file === 'concatJS2.html') {
-              expect(srcs).contains(format(hexo.config.js_concator.bundle_path));
-            } else {
-              expect(srcs).does.not.contains(format(hexo.config.js_concator.bundle_path));
-            }
-          } else if (file.includes('script1.js') ||
-            file.includes('script3.js') ||
-            [include].some(pattern => minimatch(file, pattern, { matchBase: true }))) {
-            expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
-          }
-          expect(hexoRoute.buffer[format(hexo.config.js_concator.bundle_path)]).to.has.length.greaterThan(0);
-        }
-      });
-    });
+  //           // assertion
+  //           if (file === 'concatJS1.html' || file === 'concatJS2.html') {
+  //             expect(srcs).contains(format(hexo.config.js_concator.bundle_path));
+  //           } else {
+  //             expect(srcs).does.not.contains(format(hexo.config.js_concator.bundle_path));
+  //           }
+  //         } else if (file.includes('script1.js') ||
+  //           file.includes('script3.js') ||
+  //           [include].some(pattern => minimatch(file, pattern, { matchBase: true }))) {
+  //           expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
+  //         }
+  //         expect(hexoRoute.buffer[format(hexo.config.js_concator.bundle_path)]).to.has.length.greaterThan(0);
+  //       }
+  //     });
+  //   });
 
-    it('should not touch the remote scripts', () => {
+  //   it('should not touch the remote scripts', () => {
 
-      const promise = concatJS.call(hexo);
-      return promise.then(() => {
-        for (const file of fixtures) {
-          if (file.includes('.html')) {
-            const $raw = cheerio.load(htmls[file]);
-            const expectRemoteScripts = [];
-            $raw('script[src]').each((idx, ele) => {
-              const $script = $raw(ele);
-              const src = $script.attr('src');
-              if (src.startsWith('//') || src.startsWith('http')) {
-                expectRemoteScripts.push(src);
-              }
-            });
+  //     const promise = concatJS.call(hexo);
+  //     return promise.then(() => {
+  //       for (const file of fixtures) {
+  //         if (file.includes('.html')) {
+  //           const $raw = cheerio.load(htmls[file]);
+  //           const expectRemoteScripts = [];
+  //           $raw('script[src]').each((idx, ele) => {
+  //             const $script = $raw(ele);
+  //             const src = $script.attr('src');
+  //             if (src.startsWith('//') || src.startsWith('http')) {
+  //               expectRemoteScripts.push(src);
+  //             }
+  //           });
 
-            const $ = cheerio.load(hexoRoute.buffer[file]);
-            const actualRemoteScripts = [];
-            $('script[src]').each((idx, ele) => {
-              const $script = $(ele);
-              const src = $script.attr('src');
-              if (src.startsWith('//') || src.startsWith('http')) {
-                actualRemoteScripts.push(src);
-              }
-            });
-            expect(actualRemoteScripts).to.be.deep.equal(expectRemoteScripts);
-          }
-        }
-      });
-    });
+  //           const $ = cheerio.load(hexoRoute.buffer[file]);
+  //           const actualRemoteScripts = [];
+  //           $('script[src]').each((idx, ele) => {
+  //             const $script = $(ele);
+  //             const src = $script.attr('src');
+  //             if (src.startsWith('//') || src.startsWith('http')) {
+  //               actualRemoteScripts.push(src);
+  //             }
+  //           });
+  //           expect(actualRemoteScripts).to.be.deep.equal(expectRemoteScripts);
+  //         }
+  //       }
+  //     });
+  //   });
 
-    it('should concat scripts which exist in all htmls (which have local scripts) or match the `include pattern`', () => {
-      const promise = concatJS.call(hexo);
-      return promise.then(() => {
-        for (const file of fixtures) {
-          if (file.includes('.html')) {
-            // extract src
-            const $ = cheerio.load(hexoRoute.buffer[file]);
-            const srcs = [];
-            $('script[src]').each((idx, ele) => {
-              const $script = $(ele);
-              const src = $script.attr('src');
-              srcs.push(src);
-            });
+  //   it('should concat scripts which exist in all htmls (which have local scripts) or match the `include pattern`', () => {
+  //     const promise = concatJS.call(hexo);
+  //     return promise.then(() => {
+  //       for (const file of fixtures) {
+  //         if (file.includes('.html')) {
+  //           // extract src
+  //           const $ = cheerio.load(hexoRoute.buffer[file]);
+  //           const srcs = [];
+  //           $('script[src]').each((idx, ele) => {
+  //             const $script = $(ele);
+  //             const src = $script.attr('src');
+  //             srcs.push(src);
+  //           });
 
-            // assertion
-            if (file === 'concatJS1.html' || file === 'concatJS2.html') {
-              expect(srcs).contains(format(hexo.config.js_concator.bundle_path));
-            } else {
-              expect(srcs).does.not.contains(format(hexo.config.js_concator.bundle_path));
-            }
-          } else if (file.includes('script1.js') ||
-            file.includes('script3.js') ||
-            include.some(pattern => minimatch(file, pattern, { matchBase: true }))) {
-            expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
-          }
-          expect(hexoRoute.buffer[format(hexo.config.js_concator.bundle_path)]).to.has.length.greaterThan(0);
-        }
-      });
-    });
-  });
+  //           // assertion
+  //           if (file === 'concatJS1.html' || file === 'concatJS2.html') {
+  //             expect(srcs).contains(format(hexo.config.js_concator.bundle_path));
+  //           } else {
+  //             expect(srcs).does.not.contains(format(hexo.config.js_concator.bundle_path));
+  //           }
+  //         } else if (file.includes('script1.js') ||
+  //           file.includes('script3.js') ||
+  //           include.some(pattern => minimatch(file, pattern, { matchBase: true }))) {
+  //           expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
+  //         }
+  //         expect(hexoRoute.buffer[format(hexo.config.js_concator.bundle_path)]).to.has.length.greaterThan(0);
+  //       }
+  //     });
+  //   });
+  // });
 });
