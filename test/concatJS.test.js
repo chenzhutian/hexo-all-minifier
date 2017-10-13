@@ -16,7 +16,7 @@ const htmls = {};
 for (const file of files) {
   fixtures.push(format(file));
   if (file.endsWith('.html') || file.endsWith('.js')) {
-    htmls[file] = fs.readFileSync(path.resolve(__dirname, './fixture', file));
+    htmls[file] = fs.readFileSync(path.resolve(__dirname, './fixture', file), { encoding: 'utf-8' });
   }
 }
 
