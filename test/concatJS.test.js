@@ -103,7 +103,7 @@ describe('ConcatJS', () => {
       });
     });
 
-    it('should concat scripts which exist in some htmls', () => {
+    it('should not concat scripts which exist in one htmls', () => {
 
       const promise = concatJS.call(hexo);
       return promise.then(() => {
@@ -119,10 +119,10 @@ describe('ConcatJS', () => {
             });
             // assertion
             if (file === 'concatJS1.html') {
-              expect(srcs.some(src => src.startsWith('/script2.js'))).to.be.false;
+              expect(srcs.some(src => src.startsWith('/script2.js'))).to.be.true;
             }
           } else if (file.includes('script2.js')) {
-            expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
+            expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.ok;
           }
         }
       });

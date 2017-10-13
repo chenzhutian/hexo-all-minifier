@@ -47,6 +47,7 @@ if (isEnabled) {
   hexo.config.js_concator = Object.assign({
     enable: false,
     bundle_path: 'js/bundle.js',
+    front: false,
   }, hexo.config.js_concator);
 
   hexo.extend.filter.register('after_render:html', require('./lib/optimizeHTML'));

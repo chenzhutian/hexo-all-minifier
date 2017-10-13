@@ -31,9 +31,11 @@ If you need futher control of this plugin, please refer the options below.
 js_concator:
   enable: false
   bundle_path: '/js/bundle.js'
+  front: false
 ```
 - **enable** - Enable the Js concator. Defaults to `false`.
 - **bundle_path** - The output path of the bundle script. It will be set as absolute path to the root dir.
+- **front** - Put the bundle script in the front of all scripts in `body` tag. Default to `false`, which means the bundle script will be placed in the back of other scripts.
 
 The concator will concat all local scripts into one bundle script and attach it to the end of html's `body` tag.
 More detail control will be allowed in the future version.
