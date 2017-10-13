@@ -145,9 +145,9 @@ describe('ConcatJS', () => {
 
             // assertion
             if (file === 'concatJS1.html' || file === 'concatJS2.html') {
-              expect(srcs).contains(format(hexo.config.js_concator.bundle_path));
+              expect(srcs).contains(`/${format(hexo.config.js_concator.bundle_path)}`);
             } else {
-              expect(srcs).does.not.contains(format(hexo.config.js_concator.bundle_path));
+              expect(srcs).does.not.contains(`/${format(hexo.config.js_concator.bundle_path)}`);
             }
           } else if (file.includes('script1.js') || file.includes('script3.js')) {
             expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;

@@ -30,12 +30,13 @@ If you need futher control of this plugin, please refer the options below.
 ``` yaml
 js_concator:
   enable: false
-  bundle_path: 'js/bundle.js'
+  bundle_path: '/js/bundle.js'
 ```
 - **enable** - Enable the Js concator. Defaults to `false`.
-- **bundle_path** - The output path of the bundle script.
+- **bundle_path** - The output path of the bundle script. It will be set as absolute path to the root dir.
 
 The concator will concat all local scripts into one bundle script and attach it to the end of html's `body` tag.
+More detail control will be allowed in the future version.
 ----------
 
 ``` yaml
