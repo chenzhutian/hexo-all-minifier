@@ -6,7 +6,7 @@
 [![npm version](https://badge.fury.io/js/hexo-all-minifier.svg)](https://badge.fury.io/js/hexo-all-minifier)
 [![NPM Dependencies](https://david-dm.org/unhealthy/hexo-all-minifier.svg)](https://www.npmjs.com/package/hexo-all-minifier)
 
-(:star2::new:**Try the latest feature JS_Concator in v0.4.0**)
+:star2::new:**Try the latest feature JS_Concator in v0.4.0**
 
 All in one. Minifier & Optimization plugin for [Hexo](https://hexo.io).
 
@@ -26,7 +26,7 @@ all_minifier: true
 If you need futher control of this plugin, please refer the options below.
 
 ## Options
-(:star2::new:**!NEW**)
+:star2::new:**!NEW**
 ``` yaml
 js_concator:
   enable: true
