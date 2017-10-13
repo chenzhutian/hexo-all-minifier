@@ -29,15 +29,13 @@ If you need futher control of this plugin, please refer the options below.
 :star2::new:**!NEW**
 ``` yaml
 js_concator:
-  enable: true
+  enable: false
   bundle_path: 'js/bundle.js'
-  exclude:
-  include:
 ```
 - **enable** - Enable the Js concator. Defaults to `false`.
 - **bundle_path** - The output path of the bundle script.
-- **include** - Include files. With default setting, the concator will extract the local scripts which exist in all html pages and then concat them as a bundle script. If you want to concat scripts which exist in some html pages, you can manully add them in the `include` option. Glob is support.
 
+The concator will concat all local scripts into one bundle script and attach it to the end of html's `body` tag.
 ----------
 
 ``` yaml
