@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0-2"></a>
+# [0.4.0-2](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.4.0-1...v0.4.0-2) (2017-10-13)
+
+
+### Bug Fixes
+
+* format the log info ([4ab7315](https://github.com/chenzhutian/hexo-all-minifier/commit/4ab7315))
+* only include ([331b06e](https://github.com/chenzhutian/hexo-all-minifier/commit/331b06e))
+* remove a dep ([a778462](https://github.com/chenzhutian/hexo-all-minifier/commit/a778462))
+* use `bundle_path` instead of `bundlePath` ([d1a4abb](https://github.com/chenzhutian/hexo-all-minifier/commit/d1a4abb))
+
+
+
 <a name="0.4.0-1"></a>
 # [0.4.0-1](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.4.0-0...v0.4.0-1) (2017-10-12)
 
