@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0-4"></a>
+# [0.4.0-4](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.4.0-3...v0.4.0-4) (2017-10-13)
+
+
+### Bug Fixes
+
+* set the bundle path as absolute ([37055cb](https://github.com/chenzhutian/hexo-all-minifier/commit/37055cb))
+
+
+
 <a name="0.4.0-3"></a>
 # [0.4.0-3](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.4.0-2...v0.4.0-3) (2017-10-13)
 
