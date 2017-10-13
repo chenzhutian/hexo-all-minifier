@@ -65,7 +65,7 @@ describe('ConcatJS', () => {
         config: {
           js_concator: {
             enable: true,
-            bundlePath: '//js/bundle.js',
+            bundle_path: '//js/bundle.js',
           }
         },
         route: hexoRoute,
@@ -139,7 +139,7 @@ describe('ConcatJS', () => {
                 const src = $script.attr('src');
                 srcs.push(src);
               });
-              expect(srcs).contains(format(hexo.config.js_concator.bundlePath));
+              expect(srcs).contains(format(hexo.config.js_concator.bundle_path));
             } else {
               const $ = cheerio.load(hexoRoute.buffer[file]);
               const srcs = [];
@@ -148,12 +148,12 @@ describe('ConcatJS', () => {
                 const src = $script.attr('src');
                 srcs.push(src);
               });
-              expect(srcs).does.not.contains(format(hexo.config.js_concator.bundlePath));
+              expect(srcs).does.not.contains(format(hexo.config.js_concator.bundle_path));
             }
           } else if (file.includes('script1.js')) {
             expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
           }
-          expect(hexoRoute.buffer[format(hexo.config.js_concator.bundlePath)]).to.has.length.greaterThan(0);
+          expect(hexoRoute.buffer[format(hexo.config.js_concator.bundle_path)]).to.has.length.greaterThan(0);
         }
       });
     });
