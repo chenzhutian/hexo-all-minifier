@@ -14,7 +14,7 @@ All in one. Minifier & Optimization plugin for [Hexo](https://hexo.io).
 ``` bash
 $ npm install hexo-all-minifier --save
 ```
-For Mac User, maybe you need to install somthing more
+For Mac User, maybe you need to install something more
 ```bash
 $ brew install libtool automake autoconf nasm
 ```
