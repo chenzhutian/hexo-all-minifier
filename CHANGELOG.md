@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.4.0...v0.4.1) (2018-01-02)
+
+
+### Bug Fixes
+
+* language will be escaped when use concatjs ([4e54c2c](https://github.com/chenzhutian/hexo-all-minifier/commit/4e54c2c))
+* **package:** update imagemin-mozjpeg to version 7.0.0 ([448331e](https://github.com/chenzhutian/hexo-all-minifier/commit/448331e))
+* **package:** update imagemin-svgo to version 6.0.0 ([fff0a12](https://github.com/chenzhutian/hexo-all-minifier/commit/fff0a12))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.4.0-5...v0.4.0) (2017-10-13)
 
