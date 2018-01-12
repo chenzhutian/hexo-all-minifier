@@ -50,7 +50,7 @@
     "eslint-config-hexo": "^2.0.0",
     "hexo": "^3.2.2",
     "mocha": "^4.0.0",
-    "mock-require": "^2.0.2",
+    "mock-require": "^3.0.0",
     "nyc": "^11.0.3",
     "standard-version": "^4.2.0"
   }
