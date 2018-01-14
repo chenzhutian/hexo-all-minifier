@@ -1,8 +1,11 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const expect = require('chai').expect;
+const chai = require('chai');
+chai.use(require('chai-spies'));
 const minimatch = require('minimatch');
+
+const expect = chai.expect;
 
 // Local modules.
 const optimizeImage = require('../lib/optimizeImage');
@@ -14,7 +17,7 @@ const targetFile = ['.jpg', '.gif', '.png', '.svg'];
 
 const files = fs.readdirSync(path.resolve(__dirname, './fixture'));
 for (const file of files) {
-  const filePath = path.resolve(__dirname, './fixture', file)
+  const filePath = path.resolve(__dirname, './fixture', file);
   fixtures.push(filePath);
   fileSize[filePath] = fs.statSync(filePath).size;
 }
@@ -23,13 +26,13 @@ for (const file of files) {
 // Stub hexo.route.
 const hexoRoute = {
   buffer: {},
-  get: function (name) {
+  get: function(name) {
     return fs.createReadStream(name);
   },
-  list: function () {
+  list: function() {
     return fixtures;
   },
-  set: function (name, buffer) {
+  set: function(name, buffer) {
     this.buffer[name] = buffer; // Save.
   }
 };
@@ -61,7 +64,7 @@ describe('hexo-image-minifier', () => {
     const promise = optimizeImage.call(hexo);
     return promise.then(() => {
       for (const file of fixtures) {
-        if( targetFile.indexOf(path.extname(file)) !== -1) {
+        if (targetFile.indexOf(path.extname(file)) !== -1) {
           expect(hexoRoute.buffer[file]).to.be.ok;
           expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
         }
@@ -91,7 +94,7 @@ describe('hexo-image-minifier', () => {
       config: {
         image_minifier: {
           exclude,
-          optimizationLevel: 3,
+          optimizationLevel: 3
         }
       },
       route: hexoRoute
@@ -109,6 +112,64 @@ describe('hexo-image-minifier', () => {
           expect(hexoRoute.buffer[file]).to.be.undefined;
         }
       }
+    });
+  });
+
+  describe('silent option', () => {
+    // Configure.
+    const hexo = {
+      config: {
+        image_minifier: {
+          enable: true,
+          interlaced: false,
+          multipass: false,
+          optimizationLevel: 3,
+          pngquant: false,
+          progressive: false,
+          silent: false
+        }
+      },
+      route: hexoRoute,
+      log: {
+        info: console.info,
+        debug: console.debug
+      }
+    };
+
+    beforeEach(() => {
+      chai.spy.on(hexo.log, ['info', 'debug']);
+    });
+    afterEach(() => {
+      chai.spy.restore(hexo.log);
+    });
+
+    it('should call log.info with default option', () => {
+      // Filter and test.
+      const promise = optimizeImage.call(hexo);
+      return promise.then(() => {
+        for (const file of fixtures) {
+          if (targetFile.indexOf(path.extname(file)) !== -1) {
+            expect(hexoRoute.buffer[file]).to.be.ok;
+            expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
+            expect(hexo.log.info).to.have.been.called();
+          }
+        }
+      });
+    });
+
+    it('should not call log.info in silent mode', () => {
+      hexo.config.image_minifier.silent = true;
+      // Filter and test.
+      const promise = optimizeImage.call(hexo);
+      return promise.then(() => {
+        for (const file of fixtures) {
+          if (targetFile.indexOf(path.extname(file)) !== -1) {
+            expect(hexoRoute.buffer[file]).to.be.ok;
+            expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
+            expect(hexo.log.info).to.have.not.been.called();
+          }
+        }
+      });
     });
   });
 });

@@ -14,7 +14,7 @@ describe('OptimizeCSS', () => {
     const hexo = {
       config: {
         css_minifier: {
-          enable: false,
+          enable: false
         }
       },
       log: {
@@ -57,73 +57,113 @@ describe('OptimizeCSS', () => {
         info: () => {}
       }
     };
-    const data = { str:'h { background: red;     }', path: 'test.txt' };
+    const data = { str: 'h { background: red;     }', path: 'test.txt' };
     expect(cssMinifier.call(hexo, data.str, data)).to.have.length.lessThan(data.str.length);
 
-    const excludeData = { str:'h { background: red;     }', path: 'src/usr/absolute' };
+    const excludeData = { str: 'h { background: red;     }', path: 'src/usr/absolute' };
     expect(cssMinifier.call(hexo, excludeData.str, excludeData)).to.deep.equal(excludeData.str);
   });
 
-  it('should log when minifier warnings occur', () => {
+  describe('silient option', () => {
     const hexo = {
       config: {
         css_minifier: {
           enable: true,
+          exclude: 'src/**/*',
+          silient: false
         }
       },
       log: {
-        warn: chai.spy()
+        debug: console.warn,
+        info: console.error
       }
     };
-    const data = { str:'h  background: red;     }', path: 'test.txt' };
-    cssMinifier.call(hexo, data.str, data)
-    expect(hexo.log.warn).to.have.been.called();
-  });
 
-  it('should log when minifier errors occur', () => {
-    const hexo = {
-      config: {
-        css_minifier: {
-        }
-      },
-      log: {
-        error: chai.spy()
-      }
-    };
-    const data = { str:'@import url(/path/to/styles);', path: 'test.txt' };
-    cssMinifier.call(hexo, data.str, data)
-    expect(hexo.log.error).to.have.been.called();
-  });
-
-  it('should log when catastrophic errors occur', () => {
-    const error = new Error('catastrophic error');
-
-    mock('clean-css', function() {
-      throw(error);
+    beforeEach(() => {
+      chai.spy.on(hexo.log, ['debug', 'info']);
+    });
+    afterEach(() => {
+      chai.spy.restore(hexo.log);
     });
 
-    const cssMinifier = mock.reRequire('../lib/optimizeCSS');
+    it('should call log.info with default options', () => {
+      const data = { str: 'h { background: red;     }', path: 'test.txt' };
+      expect(cssMinifier.call(hexo, data.str, data)).to.have.length.lessThan(data.str.length);
+      expect(hexo.log.info).to.have.been.called();
+
+      chai.spy.restore(hexo.log);
+      chai.spy.on(hexo.log, ['debug', 'info']);
+      const excludeData = { str: 'h { background: red;     }', path: 'src/usr/absolute' };
+      expect(cssMinifier.call(hexo, excludeData.str, excludeData)).to.deep.equal(excludeData.str);
+      expect(hexo.log.info).to.have.not.been.called();
+    });
+
+    it('should not call log.info in silent mode', () => {
+      hexo.config.css_minifier.silient = true;
+      const data = { str: 'h { background: red;     }', path: 'test.txt' };
+      expect(cssMinifier.call(hexo, data.str, data)).to.have.length.lessThan(data.str.length);
+      expect(hexo.log.info).to.have.been.called();
+
+      chai.spy.restore(hexo.log);
+      chai.spy.on(hexo.log, ['debug', 'info']);
+      const excludeData = { str: 'h { background: red;     }', path: 'src/usr/absolute' };
+      expect(cssMinifier.call(hexo, excludeData.str, excludeData)).to.deep.equal(excludeData.str);
+      expect(hexo.log.info).to.have.not.been.called();
+    });
+  });
+
+  describe('exception logger', () => {
 
     const hexo = {
       config: {
         css_minifier: {
-          enable: true,
+          enable: true
         }
       },
       log: {
-        error: chai.spy()
+        warn: console.warn,
+        error: console.error
       }
     };
-    const data = { str:'h  backgroun: red;     }', path: 'test.txt' };
-    cssMinifier.call(hexo, data.str, data)
-    expect(hexo.log.error).to.have.been.called();
+
+    beforeEach(() => {
+      chai.spy.on(hexo.log, ['warn', 'error']);
+    });
+    afterEach(() => {
+      chai.spy.restore(hexo.log);
+    });
+
+    it('should log when minifier warnings occur', () => {
+      const data = { str: 'h  background: red;     }', path: 'test.txt' };
+      cssMinifier.call(hexo, data.str, data);
+      expect(hexo.log.warn).to.have.been.called();
+    });
+
+    it('should log when minifier errors occur', () => {
+      const data = { str: '@import url(/path/to/styles);', path: 'test.txt' };
+      cssMinifier.call(hexo, data.str, data);
+      expect(hexo.log.error).to.have.been.called();
+    });
+
+    it('should log when catastrophic errors occur', () => {
+      const error = new Error('catastrophic error');
+
+      mock('clean-css', function() {
+        throw error;
+      });
+
+      const cssMinifier = mock.reRequire('../lib/optimizeCSS');
+      const data = { str: 'h  backgroun: red;     }', path: 'test.txt' };
+      cssMinifier.call(hexo, data.str, data);
+      expect(hexo.log.error).to.have.been.called();
+    });
   });
 
   it('should return the original styles when catastrophic errors occur', () => {
     const error = new Error('catastrophic error');
 
     mock('clean-css', function() {
-      throw(error);
+      throw error;
     });
 
     const cssMinifier = mock.reRequire('../lib/optimizeCSS');
@@ -131,14 +171,14 @@ describe('OptimizeCSS', () => {
     const hexo = {
       config: {
         css_minifier: {
-          enable: true,
+          enable: true
         }
       },
       log: {
         error: () => {}
       }
     };
-    const data = { str:'h  backgroun: red;     }', path: 'test.txt' };
+    const data = { str: 'h  backgroun: red;     }', path: 'test.txt' };
     expect(cssMinifier.call(hexo, data.str, data)).to.equal(data.str);
   });
 });

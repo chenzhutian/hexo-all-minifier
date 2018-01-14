@@ -1,9 +1,11 @@
+'use strict';
 /* global hexo */
 
-var isEnabled = process.env.NODE_ENV !== 'development' &&
-  (hexo.config.hasOwnProperty('all_minifier') === false || hexo.config.all_minifier === true);
+const isEnabled = process.env.NODE_ENV !== 'development'
+  && (hexo.config.hasOwnProperty('all_minifier') === false || hexo.config.all_minifier === true);
 
 if (isEnabled) {
+
   // HTML minifier
   hexo.config.html_minifier = Object.assign({
     enable: true,
@@ -15,13 +17,15 @@ if (isEnabled) {
     collapseBooleanAttributes: true,
     removeEmptyAttributes: true,
     minifyJS: true,
-    minifyCSS: true
+    minifyCSS: true,
+    silent: false
   }, hexo.config.html_minifier);
 
   // Css minifier
   hexo.config.css_minifier = Object.assign({
     enable: true,
-    exclude: ['*.min.css']
+    exclude: ['*.min.css'],
+    silent: false
   }, hexo.config.css_minifier);
 
   // Js minifier
@@ -30,7 +34,8 @@ if (isEnabled) {
     mangle: true,
     output: {},
     compress: {},
-    exclude: ['*.min.js']
+    exclude: ['*.min.js'],
+    silent: false
   }, hexo.config.js_minifier);
 
   // Image minifier
@@ -40,7 +45,8 @@ if (isEnabled) {
     multipass: false,
     optimizationLevel: 3,
     pngquant: false,
-    progressive: false
+    progressive: false,
+    silent: false
   }, hexo.config.image_minifier);
 
   // Js concator
@@ -48,6 +54,7 @@ if (isEnabled) {
     enable: false,
     bundle_path: 'js/bundle.js',
     front: false,
+    silent: false
   }, hexo.config.js_concator);
 
   hexo.extend.filter.register('after_render:html', require('./lib/optimizeHTML'));
