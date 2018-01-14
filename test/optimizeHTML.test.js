@@ -66,7 +66,7 @@ describe('OptimizeHTML', () => {
   describe('silent option', () => {
     hexo.log = {
       info: console.info,
-      debug: console.debug
+      debug: console.log
     };
     beforeEach(() => {
       chai.spy.on(hexo.log, ['info', 'debug']);

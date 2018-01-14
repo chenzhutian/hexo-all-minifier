@@ -64,7 +64,7 @@ describe('OptimizeJS', () => {
       },
       log: {
         info: console.info,
-        debug: console.debug
+        debug: console.log
       }
     };
     beforeEach(() => {

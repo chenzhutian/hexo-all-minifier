@@ -74,8 +74,8 @@ describe('OptimizeCSS', () => {
         }
       },
       log: {
-        debug: console.warn,
-        info: console.error
+        debug: console.log,
+        info: console.info
       }
     };
 

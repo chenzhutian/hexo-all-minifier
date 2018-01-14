@@ -132,7 +132,7 @@ describe('hexo-image-minifier', () => {
       route: hexoRoute,
       log: {
         info: console.info,
-        debug: console.debug
+        debug: console.log
       }
     };
 
