@@ -32,10 +32,12 @@ js_concator:
   enable: false
   bundle_path: '/js/bundle.js'
   front: false
+  silent: false
 ```
 - **enable** - Enable the Js concator. Defaults to `false`.
 - **bundle_path** - The output path of the bundle script. It will be set as absolute path to the root dir.
 - **front** - Put the bundle script in the front of all scripts in `body` tag. Default to `false`, which means the bundle script will be placed in the back of other scripts.
+- **silent** - Disable logging optimize informations. Defaults to `false`.
 
 The concator will concat all local scripts into one bundle script and attach it to the end of html's `body` tag.
 More detail control will be allowed in the future version.
@@ -45,10 +47,12 @@ More detail control will be allowed in the future version.
 html_minifier:
   enable: true
   ignore_error: false
+  silent: false
   exclude:
 ```
 - **enable** - Enable the HTML minifier. Defaults to `true`.
 - **ignore_error** - Ignore the error occurred on parsing html.
+- **silent** - Disable logging optimize informations. Defaults to `false`.
 - **exclude** - Exclude files. Glob is support.
 
 ----------
@@ -56,10 +60,12 @@ html_minifier:
 ``` yaml
 css_minifier:
   enable: true
+  silent: false
   exclude: 
     - '*.min.css'
 ```
 - **enable** - Enable the CSS minifier. Defaults to `true`.
+- **silent** - Disable logging optimize informations. Defaults to `false`.
 - **exclude** - Exclude files. Glob is support.
 
 ----------
@@ -68,6 +74,7 @@ css_minifier:
 js_minifier:
   enable: true
   mangle: true
+  silent: false
   output:
   compress:
   exclude: 
@@ -77,6 +84,7 @@ js_minifier:
 - **mangle**: Mangle file names
 - **output**: Output options. If it is empty, please remove it from the .yml file! Otherwise it will be set to `null`, which is different from `undefined`.
 - **compress**: Compress options. If it is empty, please remove it from the .yml file! Otherwise it will be set to `null`, which is different from `undefined`.
+- **silent** - Disable logging optimize informations. Defaults to `false`.
 - **exclude**: Exclude files. Glob is support.
 
 ----------
@@ -89,6 +97,7 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
+  silent: false
 ```
 - **enable** - Enable the image minifier. Defaults to `true`.
 - **interlaced** - Interlace gif for progressive rendering. Defaults to `false`.
@@ -96,6 +105,7 @@ image_minifier:
 - **optimizationLevel** - Select an optimization level between 0 and 7. Defaults to `2`.
 - **pngquant** - Enable [imagemin-pngquant](https://github.com/imagemin/imagemin-pngquant) plugin. Defaults to `false`.
 - **progressive** - Lossless conversion to progressive. Defaults to `false`.
+- **silent** - Disable logging optimize informations. Defaults to `false`.
 - **exclude** - Exclude specific types of image files, the input value could be `gif`,`jpg`, `png`, or `svg`. Default to null. Glob is not support. 
 
 
