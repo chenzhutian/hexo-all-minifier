@@ -31,7 +31,7 @@
     "cheerio": "^1.0.0-rc.2",
     "clean-css": "^4.0.9",
     "html-minifier": "^3.4.1",
-    "imagemin": "^5.2.2",
+    "imagemin": "^6.0.0",
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-mozjpeg": "^7.0.0",
