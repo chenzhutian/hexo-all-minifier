@@ -33,7 +33,7 @@
     "html-minifier": "^3.4.1",
     "imagemin": "^6.0.0",
     "imagemin-gifsicle": "^5.1.0",
-    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-jpegtran": "^6.0.0",
     "imagemin-mozjpeg": "^7.0.0",
     "imagemin-optipng": "^5.2.1",
     "imagemin-pngquant": "^5.0.0",
