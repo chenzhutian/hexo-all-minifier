@@ -1,6 +1,6 @@
 {
   "name": "hexo-all-minifier",
-  "version": "0.5.2",
+  "version": "0.5.1",
   "description": "Minify HTML, CSS, JS and Image files.",
   "main": "index",
   "scripts": {
@@ -27,31 +27,31 @@
   "author": "Chen Zhutian <zhutian.chen@outlook.com> (http://chenzhutian.org)",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.5.0",
+    "bluebird": "^3.5.3",
     "cheerio": "^1.0.0-rc.2",
-    "clean-css": "^4.0.9",
-    "html-minifier": "^3.4.1",
-    "imagemin": "^6.0.0",
-    "imagemin-gifsicle": "^5.1.0",
-    "imagemin-jpegtran": "^5.0.2",
-    "imagemin-mozjpeg": "^7.0.0",
-    "imagemin-optipng": "^5.2.1",
-    "imagemin-pngquant": "^5.0.0",
+    "clean-css": "^4.2.1",
+    "html-minifier": "^3.5.21",
+    "imagemin": "^6.1.0",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^6.0.0",
+    "imagemin-pngquant": "^7.0.0",
     "imagemin-svgo": "^7.0.0",
-    "minimatch": "^3.0.3",
-    "uglify-es": "^3.0.26"
+    "minimatch": "^3.0.4",
+    "uglify-es": "^3.3.9"
   },
   "devDependencies": {
-    "@types/chai": "^4.0.1",
-    "@types/mocha": "^5.0.0",
-    "chai": "^4.1.0",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
-    "eslint": "^5.0.0",
+    "eslint": "^5.12.0",
     "eslint-config-hexo": "^3.0.0",
-    "hexo": "^3.2.2",
-    "mocha": "^5.0.0",
-    "mock-require": "^3.0.0",
-    "nyc": "^12.0.1",
-    "standard-version": "^4.2.0"
+    "hexo": "^3.8.0",
+    "mocha": "^5.2.0",
+    "mock-require": "^3.0.2",
+    "nyc": "^13.1.0",
+    "standard-version": "^4.4.0"
   }
 }
