@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.5.2...v0.5.3) (2019-01-14)
+
+
+### Bug Fixes
+
+* **package:** update imagemin to version 6.0.0 ([5b4dee9](https://github.com/chenzhutian/hexo-all-minifier/commit/5b4dee9))
+* **package:** update imagemin-svgo to version 7.0.0 ([0ef02fa](https://github.com/chenzhutian/hexo-all-minifier/commit/0ef02fa))
+
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.5.1...v0.5.2) (2018-01-30)
 
