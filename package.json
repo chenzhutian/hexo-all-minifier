@@ -30,7 +30,7 @@
     "bluebird": "^3.5.3",
     "cheerio": "^1.0.0-rc.2",
     "clean-css": "^4.2.1",
-    "html-minifier": "^3.5.21",
+    "html-minifier": "^4.0.0",
     "imagemin": "^6.1.0",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-jpegtran": "^6.0.0",
@@ -49,9 +49,9 @@
     "eslint": "^5.12.0",
     "eslint-config-hexo": "^3.0.0",
     "hexo": "^3.8.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.1.4",
     "mock-require": "^3.0.2",
-    "nyc": "^13.1.0",
-    "standard-version": "^5.0.0"
+    "nyc": "^14.0.0",
+    "standard-version": "^5.0.2"
   }
 }
