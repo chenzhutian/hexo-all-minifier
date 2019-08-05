@@ -38,7 +38,7 @@
     "imagemin-optipng": "^6.0.0",
     "imagemin-pngquant": "^7.0.0",
     "imagemin-svgo": "^7.0.0",
-    "minimatch": "^3.0.4",
+    "micromatch": "^4.0.2",
     "uglify-es": "^3.3.9"
   },
   "devDependencies": {

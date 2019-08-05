@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const chai = require('chai');
 chai.use(require('chai-spies'));
-const minimatch = require('minimatch');
+const micromatch = require('micromatch');
 
 const expect = chai.expect;
 
@@ -105,7 +105,7 @@ describe('hexo-image-minifier', () => {
     return promise.then(() => {
       for (const file of fixtures) {
         if (targetFile.indexOf(path.extname(file)) !== -1
-          && exclude.every(pattern => !minimatch(file, pattern, { nocase: true, matchBase: true }))) {
+          && !micromatch.isMatch(file, exclude, { nocase: true, basename: true })) {
           expect(hexoRoute.buffer[file]).to.be.ok;
           expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
         } else {

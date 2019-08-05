@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
 const cheerio = require('cheerio');
-const minimatch = require('minimatch');
+const micromatch = require('micromatch');
 
 // Local modules.
 const concatJS = require('../lib/concatJS');
@@ -200,7 +200,7 @@ describe('ConcatJS', () => {
   //           }
   //         } else if (file.includes('script1.js') ||
   //           file.includes('script3.js') ||
-  //           [include].some(pattern => minimatch(file, pattern, { matchBase: true }))) {
+  //           [include].some(pattern => micromatch.isMatch(file, pattern, { basename: true }))) {
   //           expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
   //         }
   //         expect(hexoRoute.buffer[format(hexo.config.js_concator.bundle_path)]).to.has.length.greaterThan(0);
@@ -261,7 +261,7 @@ describe('ConcatJS', () => {
   //           }
   //         } else if (file.includes('script1.js') ||
   //           file.includes('script3.js') ||
-  //           include.some(pattern => minimatch(file, pattern, { matchBase: true }))) {
+  //           include.some(pattern => micromatch(file, pattern, { matchBase: true }))) {
   //           expect(hexoRoute.buffer[format(file)], 'js file has been removed').to.be.undefined;
   //         }
   //         expect(hexoRoute.buffer[format(hexo.config.js_concator.bundle_path)]).to.has.length.greaterThan(0);
