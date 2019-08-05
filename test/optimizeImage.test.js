@@ -105,7 +105,7 @@ describe('hexo-image-minifier', () => {
     return promise.then(() => {
       for (const file of fixtures) {
         if (targetFile.indexOf(path.extname(file)) !== -1
-          && !micromatch.isMatch(file, exclude, { nocase: true, basename: true })) {
+          && micromatch.isMatch(file, exclude, { nocase: true, basename: true })) {
           expect(hexoRoute.buffer[file]).to.be.ok;
           expect(fileSize[file]).to.be.greaterThan(hexoRoute.buffer[file].length);
         } else {
