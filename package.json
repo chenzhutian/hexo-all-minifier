@@ -52,6 +52,6 @@
     "mocha": "^6.1.4",
     "mock-require": "^3.0.2",
     "nyc": "^14.0.0",
-    "standard-version": "^7.0.1"
+    "standard-version": "^8.0.0"
   }
 }
