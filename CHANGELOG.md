@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.5.4](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.5.3...v0.5.4) (2020-10-08)
+
+
+### Bug Fixes
+
+* **package:** update imagemin-jpegtran to version 7.0.0 ([1015ee6](https://github.com/chenzhutian/hexo-all-minifier/commit/1015ee696931387454558e8dd5d9de104de25b02))
+* **package:** update imagemin-pngquant to version 8.0.0 ([65da429](https://github.com/chenzhutian/hexo-all-minifier/commit/65da4292e6a707a32e97c04d8297fca0fe7acfbe))
+* **package:** update imagemin-pngquant to version 9.0.0 ([8e9417f](https://github.com/chenzhutian/hexo-all-minifier/commit/8e9417f2c6fe4b6b8f8ea4216ec970d9a48d5439))
 
 <a name="0.5.3"></a>
 ## [0.5.3](https://github.com/chenzhutian/hexo-all-minifier/compare/v0.5.2...v0.5.3) (2019-01-14)
