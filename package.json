@@ -30,7 +30,7 @@
     "bluebird": "^3.5.3",
     "cheerio": "^1.0.0-rc.2",
     "clean-css": "^4.2.1",
-    "html-minifier": "^4.0.0",
+    "html-minifier-terser": "^5.1.1",
     "imagemin": "^6.1.0",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-jpegtran": "^7.0.0",
